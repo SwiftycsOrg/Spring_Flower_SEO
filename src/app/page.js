@@ -166,12 +166,13 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
                 >
                   <div className="aspect-[4/3] bg-gradient-to-br from-gray-200 to-gray-300 flex items-end p-4">
                     <div className="bg-white/70 backdrop-blur-sm rounded-md px-3 py-1 text-xs font-semibold">
-                      {item.title}
+                      
+                      {lang === 'ar'?  item.title : item.category }
                     </div>
                   </div>
 
                   <div className="p-4">
-                    <h3 className="font-semibold">{item.title}</h3>
+                    <h3 className="font-semibold">{lang === 'ar'?  item.title : item.category }</h3>
                     <p className="text-sm text-gray-500 mt-1">{t.home.services[item.category] || item.category}</p>
                   </div>
                 </article>
