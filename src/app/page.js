@@ -273,17 +273,20 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
           >
             {t.welcome.cta}
           </button>
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
+  {t.welcome.stats.map((stat, i) => (
+    <div
+      key={i}
+      className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg text-center"
+    >
+      <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+        {stat.number}
+      </div>
+      <div className="text-sm text-gray-600 mt-2">{stat.label}</div>
+    </div>
+  ))}
+</div>
 
-          <div className="grid grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
-            {t.welcome.stats.map((stat, i) => (
-              <div key={i} className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-gray-600 mt-2">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
