@@ -1,5 +1,7 @@
 'use client';
+
 import React, { useState, useEffect } from "react";
+import VideoPlaylist from "./components/VideoPlaylist";
 
 const content = {
   ar: {
@@ -119,14 +121,14 @@ const content = {
 };
 
 const sampleItems = [
-  { id: 1, category: "marble", title: "مطابخ رخامية 1" },
-  { id: 2, category: "wood", title: "مطابخ خشبية 1" },
-  { id: 3, category: "aluminum", title: "مطابخ ألمنيوم 1" },
-  { id: 4, category: "marble", title: "مطابخ رخامية 2" },
-  { id: 5, category: "wood", title: "مطابخ خشبية 2" },
-  { id: 6, category: "decoration", title: "ديكور داخلي 1" },
-  { id: 7, category: "windows", title: "نافذة فاخرة 1" },
+  { id: 1, category: "marble", title: "مطابخ رخامية 1" , img: "/New folder/IMG-20251002-WA0003.jpg"},
+  { id: 2, category: "wood", title: "مطابخ خشبية 1"  , img: "/New folder/IMG-20251002-WA0007.jpg"}, 
+  { id: 3, category: "aluminum", title: "مطابخ ألمنيوم 1", img: "/New folder/IMG-20251002-WA0010.jpg" },
+  { id: 4, category: "marble", title: "مطابخ رخامية 2"  , img: "New folder/IMG-20251002-WA0011.jpg"},
+  { id: 5, category: "wood", title: "مطابخ خشبية 2" , img: "/New folder/IMG-20251002-WA0015.jpg"},
+  { id: 6, category: "decoration", title: "ديكور داخلي 1" , img: "/New folder/IMG-20251002-WA0008.jpg"},
 ];
+
 
 export default function KitchensShowcase({ initialLang = "ar" }) {
   const [lang, setLang] = useState(initialLang);
@@ -135,7 +137,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
   const [selected, setSelected] = useState(null);
   const [currentSection, setCurrentSection] = useState("welcome");
 
-  // SEO Metadata based on language
+
   const seoData = {
     ar: {
       title: "شركة أزهار الربيع | مطابخ عصرية وديكورات داخلية فاخرة في الأردن",
@@ -206,23 +208,24 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
   }, [lang, currentSeo]);
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900" dir={t.dir}>
+  <div className="min-h-screen bg-[#F8F8F8] text-[#222222]" dir={t.dir}>
       {/* Header */}
-      <header className="bg-white/95 backdrop-blur-sm shadow-sm fixed top-0 left-0 right-0 z-50">
+      <header className="bg-[rgba(34,34,34,0.85)] backdrop-blur-sm shadow-sm fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <div className="text-2xl font-bold bg-gradient-to-r from-[#8B5E3C] to-[#C2A572] bg-clip-text text-transparent">
               {t.home.title}
             </div>
+          
           </div>
           <nav className="hidden md:flex items-center gap-6">
-            <button onClick={() => scrollToSection('welcome')} className="text-sm hover:text-purple-600 transition">
+            <button onClick={() => scrollToSection('welcome')} className="text-sm text-white hover:text-[#C2A572] transition">
               {lang === "ar" ? "الرئيسية" : "Home"}
             </button>
-            <button onClick={() => scrollToSection('about')} className="text-sm hover:text-purple-600 transition">
+            <button onClick={() => scrollToSection('about')} className="text-sm text-white hover:text-[#C2A572] transition">
               {t.about.title}
             </button>
-            <button onClick={() => scrollToSection('gallery')} className="text-sm hover:text-purple-600 transition">
+            <button onClick={() => scrollToSection('gallery')} className="text-sm text-white hover:text-[#C2A572] transition">
               {t.gallery.title}
             </button>
           </nav>
@@ -230,7 +233,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
             <button
               aria-label="toggle-lang"
               onClick={() => setLang(lang === "ar" ? "en" : "ar")}
-              className="px-3 py-1 border border-gray-300 rounded-lg text-sm hover:bg-gray-50 transition"
+              className="px-3 py-1 border border-[#E0E0E0] bg-white text-[#8B5E3C] rounded-lg text-sm hover:bg-[#F5F5F5] transition"
             >
               {t.toggle}
             </button>
@@ -238,7 +241,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
               href="https://wa.me/962795924472"
               target="_blank"
               rel="noreferrer"
-              className="px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg text-sm hover:shadow-lg transition"
+              className="px-4 py-2 bg-gradient-to-r from-[#C2A572] to-[#7A583C] text-white rounded-lg text-sm hover:shadow-lg transition"
             >
               {t.home.cta}
             </a>
@@ -248,28 +251,28 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
 
       {/* Welcome Section */}
       <section id="welcome" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-pink-50 to-blue-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F5F5F5] via-[#F8F8F8] to-[#E0E0E0]"></div>
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-pink-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 left-20 w-72 h-72 bg-[#8B5E3C] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#C2A572] rounded-full blur-3xl"></div>
         </div>
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
           <div className="mb-8 animate-fade-in">
-            <h1 className="text-6xl md:text-8xl font-extrabold mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="text-6xl md:text-8xl font-extrabold mb-4 bg-gradient-to-r from-[#8B5E3C] via-[#C2A572] to-[#7A583C] bg-clip-text text-transparent">
               {t.welcome.hero}
             </h1>
-            <p className="text-2xl md:text-3xl font-light text-gray-700 mb-2">
+            <p className="text-2xl md:text-3xl font-light text-[#6F6F6F] mb-2">
               {t.welcome.tagline}
             </p>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-[#6F6F6F]">
               {t.welcome.subtitle}
             </p>
           </div>
 
           <button
             onClick={() => scrollToSection('about')}
-            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-lg font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            className="px-8 py-4 bg-gradient-to-r from-[#8B5E3C] to-[#734D32] text-white rounded-full text-lg font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
           >
             {t.welcome.cta}
           </button>
@@ -279,10 +282,10 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
       key={i}
       className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg text-center"
     >
-      <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+      <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#8B5E3C] to-[#C2A572] bg-clip-text text-transparent">
         {stat.number}
       </div>
-      <div className="text-sm text-gray-600 mt-2">{stat.label}</div>
+      <div className="text-sm text-[#6F6F6F] mt-2">{stat.label}</div>
     </div>
   ))}
 </div>
@@ -294,46 +297,27 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
       <section id="about" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#8B5E3C] to-[#C2A572] bg-clip-text text-transparent">
               {t.about.title}
             </h2>
-            <p className="text-xl text-gray-600">{t.about.subtitle}</p>
+            <p className="text-xl text-[#6F6F6F]">{t.about.subtitle}</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1">
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              <p className="text-lg text-[#222222] leading-relaxed mb-6">
                 {t.about.description}
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {t.about.features.map((feature, i) => (
-                  <div key={i} className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-4">
-                    <h4 className="font-bold text-purple-900 mb-1">{feature.title}</h4>
-                    <p className="text-sm text-gray-600">{feature.desc}</p>
+                  <div key={i} className="bg-gradient-to-br from-[#F5F5F5] to-[#E0E0E0] rounded-xl p-4">
+                    <h4 className="font-bold text-[#8B5E3C] mb-1">{feature.title}</h4>
+                    <p className="text-sm text-[#6F6F6F]">{feature.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
-
-            <div className="order-1 md:order-2">
-              <div className="relative aspect-video bg-gradient-to-br from-purple-200 to-pink-200 rounded-2xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <svg className="w-10 h-10 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-                    <p className="text-white font-semibold text-lg px-4">
-                      {t.about.videoPlaceholder}
-                    </p>
-                    <p className="text-white/80 text-sm mt-2">
-                      {lang === "ar" ? "يمكنك إضافة رابط الفيديو هنا" : "You can add video link here"}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+<VideoPlaylist lang={lang} t={t} />
           </div>
 
           {/* Services Preview */}
@@ -341,11 +325,11 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
             <h3 className="text-3xl font-bold text-center mb-8">{t.home.services.title}</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {Object.entries(t.home.services).filter(([key]) => key !== 'title').map(([key, value]) => (
-                <div key={key} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 text-center hover:shadow-lg transition cursor-pointer" onClick={() => scrollToSection('gallery')}>
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <div key={key} className="bg-gradient-to-br from-[#F5F5F5] to-[#E0E0E0] rounded-xl p-6 text-center hover:shadow-lg transition cursor-pointer" onClick={() => scrollToSection('gallery')}>
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#8B5E3C] to-[#C2A572] rounded-full mx-auto mb-4 flex items-center justify-center">
                     <span className="text-2xl text-white">✨</span>
                   </div>
-                  <h4 className="font-semibold text-gray-900">{value}</h4>
+                  <h4 className="font-semibold text-[#222222]">{value}</h4>
                 </div>
               ))}
             </div>
@@ -354,14 +338,14 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-20 bg-gray-50">
+      <section id="gallery" className="py-20 bg-[#F8F8F8]">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-12">
             <div className="md:col-span-2">
-              <h2 className="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <h2 className="text-4xl font-bold mb-2 bg-gradient-to-r from-[#8B5E3C] to-[#C2A572] bg-clip-text text-transparent">
                 {t.gallery.title}
               </h2>
-              <p className="text-gray-600">{t.gallery.subtitle}</p>
+              <p className="text-[#6F6F6F]">{t.gallery.subtitle}</p>
             </div>
 
             <div className="flex flex-col gap-3">
@@ -372,15 +356,15 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
                     onClick={() => setFilter(c.key)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition ${
                       filter === c.key 
-                        ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg" 
-                        : "bg-white text-gray-700 hover:shadow-md"
+                        ? "bg-gradient-to-r from-[#8B5E3C] to-[#734D32] text-white shadow-lg" 
+                        : "bg-white text-[#222222] hover:shadow-md"
                     }`}
                   >
                     {c.label}
                   </button>
                 ))}
               </div>
-              <div className="text-sm text-gray-500">
+              <div className="text-sm text-[#6F6F6F]">
                 {items.length} {lang === "ar" ? "نتيجة" : "results"}
               </div>
             </div>
@@ -389,7 +373,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
           {items.length === 0 ? (
             <div className="p-12 bg-white rounded-2xl shadow-sm text-center">
               <div className="text-6xl mb-4">📸</div>
-              <p className="text-gray-600">{t.gallery.placeholder}</p>
+              <p className="text-[#6F6F6F]">{t.gallery.placeholder}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -399,15 +383,25 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
                   className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
                   onClick={() => setSelected(item)}
                 >
-                  <div className="aspect-[4/3] bg-gradient-to-br from-purple-200 via-pink-200 to-blue-200 flex items-end p-4">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 text-xs font-semibold">
-                      {lang === "ar" ? item.title : item.category}
-                    </div>
-                  </div>
+                <div className="relative aspect-[4/3]">
+  <img
+    src={item.img}
+    alt={lang === "ar" ? item.title : item.category}
+    className="w-full h-full object-cover rounded-lg"
+    style={{
+      background: "linear-gradient(to bottom right, #C2A572, #7A583C, #8B5E3C)"
+    }}
+  />
+  <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 text-xs font-semibold">
+    {lang === "ar" ? item.title : item.category}
+  </div>
+</div>
+
                   <div className="p-4">
                     <h3 className="font-bold text-lg">{lang === "ar" ? item.title : item.category}</h3>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-[#6F6F6F] mt-1">
                       {t.home.services[item.category] || item.category}
+                    
                     </p>
                   </div>
                 </article>
@@ -420,29 +414,23 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
       {/* Modal */}
       {selected && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white max-w-4xl w-full rounded-3xl overflow-hidden shadow-2xl">
-            <div className="flex items-center justify-between p-6 border-b bg-gradient-to-r from-purple-50 to-pink-50">
+          <div className="bg-white max-w-2xl w-full rounded-3xl overflow-hidden shadow-2xl">
+            <div className="flex items-center justify-between p-6 border-b border-[#E0E0E0] bg-gradient-to-r from-[#F5F5F5] to-[#E0E0E0]">
               <h4 className="font-bold text-xl">{selected.title}</h4>
               <button 
                 onClick={() => setSelected(null)} 
-                className="w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition flex items-center justify-center"
+                className="w-10 h-10 rounded-full bg-white hover:bg-[#F5F5F5] transition flex items-center justify-center"
               >
                 ✕
               </button>
             </div>
-            <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="aspect-[4/3] bg-gradient-to-br from-purple-200 to-pink-200 rounded-2xl flex items-center justify-center text-gray-500">
-                <div className="text-center">
-                  <div className="text-5xl mb-2">🖼️</div>
-                  <p>صورة افتراضية</p>
-                </div>
-              </div>
+            <div className="p-6 flex  items-center justify-center">
               <div className="flex flex-col justify-between">
                 <div>
-                  <p className="text-gray-700 mb-4 leading-relaxed">{t.home.description}</p>
-                  <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-4">
+                  <p className="text-[#222222] mb-4 leading-relaxed">{t.home.description}</p>
+                  <div className="bg-gradient-to-br from-[#F5F5F5] to-[#E0E0E0] rounded-xl p-4">
                     <h5 className="font-semibold mb-2">{t.home.services[selected.category]}</h5>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-[#6F6F6F]">
                       {lang === "ar" 
                         ? "نقدم أفضل الحلول بأعلى جودة وأحدث التصاميم" 
                         : "We provide the best solutions with highest quality and latest designs"}
@@ -455,7 +443,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-4 px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold hover:shadow-lg transition text-center"
+                  className="mt-4 px-6 py-3 bg-gradient-to-r from-[#C2A572] to-[#7A583C] text-white rounded-xl font-semibold hover:shadow-lg transition text-center"
                 >
                   {t.contact.whatsapp}
                 </a>
@@ -466,12 +454,12 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
       )}
 
       {/* Footer */}
-   <footer className="bg-gradient-to-br from-gray-900 via-purple-900 to-pink-900 text-white py-12">
+   <footer className="bg-gradient-to-br from-[#121212] via-[#1a1410] to-[#2a1f1a] text-white py-12">
   <div className="max-w-6xl mx-auto px-4">
     {/* العنوان */}
     <div className="text-center mb-8">
       <h2 className="text-3xl font-bold mb-2">{t.home.title}</h2>
-      <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mx-auto mb-4"></div>
+      <div className="w-24 h-1 bg-gradient-to-r from-[#8B5E3C] to-[#C2A572] rounded-full mx-auto mb-4"></div>
       <p className="text-gray-300">{t.home.subtitle}</p>
     </div>
 
@@ -482,7 +470,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
         href="https://wa.me/962795924472"
         target="_blank"
         rel="noreferrer"
-        className="hover:text-green-400 transition flex items-center gap-2"
+        className="hover:text-[#C2A572] transition flex items-center gap-2"
       >
         <img
           src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
@@ -497,7 +485,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
         href="https://www.facebook.com/"
         target="_blank"
         rel="noreferrer"
-        className="hover:text-blue-400 transition flex items-center gap-2"
+        className="hover:text-[#C2A572] transition flex items-center gap-2"
       >
         <img
           src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
@@ -509,7 +497,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
     </div>
 
 <div className="mb-12 flex justify-center">
-  <div className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+  <div className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-xl border border-[rgba(255,255,255,0.1)]">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3385.2374334748088!2d35.82845178483863!3d31.954454781228222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDU3JzE2LjAiTiAzNcKwNDknMzQuNiJF!5e0!3m2!1sar!2sjo!4v1759230085524!5m2!1sar!2sjo"
       className="w-full h-[400px] md:h-[500px] lg:h-[550px]"
