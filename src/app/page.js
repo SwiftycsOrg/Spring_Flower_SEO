@@ -11,8 +11,8 @@ const content = {
       subtitle: "نحول أحلامك إلى واقع ملموس",
       cta: "استكشف أعمالنا",
       stats: [
-        { number: "15+", label: "سنة خبرة" },
-        { number: "500+", label: "مشروع منجز" },
+        { number: "40+", label: "سنة خبرة" },
+        { number: "1000+", label: "مشروع منجز" },
         { number: "100%", label: "رضا العملاء" }
       ]
     },
@@ -36,9 +36,6 @@ const content = {
         title: "خدماتنا",
         wood: "مطابخ خشبية وأعمال المنجور",
         aluminum: "مطابخ ألمنيوم",
-        windows: "النوافذ",
-        decoration: "الديكورات",
-        marble: "مطابخ رخامية"
       },
       cta: "تواصل معنا عبر واتساب",
       location: "موقعنا في الأردن",
@@ -48,11 +45,8 @@ const content = {
       subtitle: "استعرض مجموعة من أفضل مشاريعنا",
       categories: {
         all: "جميع الأعمال",
-        marble: "مطابخ رخامية",
         wood: "مطابخ خشبية",
         aluminum: "مطابخ ألمنيوم",
-        windows: "النوافذ",
-        decoration: "الديكورات",
       },
       placeholder: "سيتم إضافة الصور والفيديوهات قريباً",
     },
@@ -88,14 +82,11 @@ const content = {
     home: {
       title: "Spring Flowers Company",
       subtitle: "Specialists in Kitchens and Interior Decoration",
-      description: "We are a leading company in designing and implementing modern kitchens made of marble, wood, and aluminum, in addition to luxury windows and interior decorations.",
+      description: "We are a leading company in designing and implementing modern kitchens made of , wood, and aluminum, in addition to luxury windows and interior decorations.",
       services: {
         title: "Our Services",
         wood: "Wood Kitchens",
         aluminum: "Aluminum Kitchens",
-        windows: "Windows",
-        decoration: "Decorations",
-        marble: "Marble Kitchens"
       },
       cta: "Contact us via WhatsApp",
       location: "Our Location in Jordan",
@@ -105,11 +96,8 @@ const content = {
       subtitle: "Browse a collection of our best projects",
       categories: {
         all: "All Work",
-        marble: "Marble Kitchens",
         wood: "Wood Kitchens",
         aluminum: "Aluminum Kitchens",
-        windows: "Windows",
-        decoration: "Decorations",
       },
       placeholder: "Images and videos will be added soon",
     },
@@ -121,12 +109,12 @@ const content = {
 };
 
 const sampleItems = [
-  { id: 1, category: "marble", title: "مطابخ رخامية 1" , img: "/New folder/IMG-20251002-WA0003.jpg"},
-  { id: 2, category: "wood", title: "مطابخ خشبية 1"  , img: "/New folder/IMG-20251002-WA0007.jpg"}, 
-  { id: 3, category: "aluminum", title: "مطابخ ألمنيوم 1", img: "/New folder/IMG-20251002-WA0010.jpg" },
-  { id: 4, category: "marble", title: "مطابخ رخامية 2"  , img: "New folder/IMG-20251002-WA0011.jpg"},
-  { id: 5, category: "wood", title: "مطابخ خشبية 2" , img: "/New folder/IMG-20251002-WA0015.jpg"},
-  { id: 6, category: "decoration", title: "ديكور داخلي 1" , img: "/New folder/IMG-20251002-WA0008.jpg"},
+  { id: 1, category: "wood", title: "مطابخ خشبية 1" , img: "/New folder/IMG-20251002-WA0003.jpg"},
+  { id: 2, category: "wood", title: "مطابخ خشبية "  , img: "/New folder/IMG-20251002-WA0007.jpg"}, 
+  { id: 3, category: "wood", title: "مطابخ خشبية 1", img: "/New folder/IMG-20251002-WA0015.jpg " },
+  { id: 4, category: "aluminum", title: "مطابخ ألمنيوم 2"  , img: "New folder/IMG-20251002-WA0011.jpg"},
+  { id: 5, category: "aluminum", title: "مطابخ ألمنيوم 2" , img: "/New folder/IMG-20251002-WA0010.jpg"},
+  { id: 6, category: "aluminum", title: "مطابخ ألمنيوم 1" , img: "/New folder/IMG-20251002-WA0008.jpg"},
 ];
 
 
@@ -141,15 +129,15 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
   const seoData = {
     ar: {
       title: "شركة أزهار الربيع | مطابخ عصرية وديكورات داخلية فاخرة في الأردن",
-      description: "شركة رائدة في تصميم وتنفيذ المطابخ الرخامية والخشبية والألمنيوم والديكورات الداخلية. خبرة 15+ سنة في الأردن. جودة عالية وأسعار منافسة.",
-      keywords: "مطابخ الأردن, مطابخ رخامية, مطابخ خشبية, مطابخ ألمنيوم, ديكورات داخلية, نوافذ, أزهار الربيع, تصميم مطابخ عمان",
+      description: "شركة رائدة في تصميم وتنفيذ المطابخ  والخشبية والألمنيوم والديكورات الداخلية. خبرة 15+ سنة في الأردن. جودة عالية وأسعار منافسة.",
+      keywords: "مطابخ الأردن, مطابخ , مطابخ خشبية, مطابخ ألمنيوم, ديكورات داخلية, نوافذ, أزهار الربيع, تصميم مطابخ عمان",
       ogTitle: "أزهار الربيع - متخصصون في المطابخ والديكورات الداخلية",
       ogDescription: "نحول أحلامك إلى واقع ملموس. مطابخ عصرية وديكورات فاخرة بأعلى جودة.",
     },
     en: {
       title: "Spring Flowers Company | Modern Kitchens & Interior Design in Jordan",
-      description: "Leading company in designing modern marble, wood, and aluminum kitchens and interior decorations. 15+ years experience in Jordan. High quality and competitive prices.",
-      keywords: "kitchens Jordan, marble kitchens, wooden kitchens, aluminum kitchens, interior decoration, windows, Spring Flowers, kitchen design Amman",
+      description: "Leading company in designing modern , wood, and aluminum kitchens and interior decorations. 15+ years experience in Jordan. High quality and competitive prices.",
+      keywords: "kitchens Jordan,  kitchens, wooden kitchens, aluminum kitchens, interior decoration, windows, Spring Flowers, kitchen design Amman",
       ogTitle: "Spring Flowers - Specialists in Kitchens and Interior Decoration",
       ogDescription: "Turning your dreams into reality. Modern kitchens and luxury decorations with highest quality.",
     }
@@ -159,7 +147,6 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
 
   const categories = [
     { key: "all", label: t.gallery.categories.all },
-    { key: "marble", label: t.gallery.categories.marble },
     { key: "wood", label: t.gallery.categories.wood },
     { key: "aluminum", label: t.gallery.categories.aluminum },
     { key: "windows", label: t.gallery.categories.windows },

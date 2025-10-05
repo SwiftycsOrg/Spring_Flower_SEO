@@ -1,9 +1,12 @@
 "use client";
 import { useState, useRef } from "react";
+import { Play, Pause, Volume2, VolumeX, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 export default function VideoPlaylist({ t, lang }) {
   const [showVideo, setShowVideo] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const videoRef = useRef(null);
 
   const videos = [
@@ -19,12 +22,40 @@ export default function VideoPlaylist({ t, lang }) {
     if (currentIndex < videos.length - 1) {
       setCurrentIndex(prev => prev + 1);
     } else {
-      setCurrentIndex(0); 
+      setCurrentIndex(0);
     }
+  };
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  };
+
+  const nextVideo = () => {
+    setCurrentIndex((prev) => (prev + 1) % videos.length);
+  };
+
+  const prevVideo = () => {
+    setCurrentIndex((prev) => (prev - 1 + videos.length) % videos.length);
   };
 
   return (
     <div className="order-1 md:order-2">
+      {/* خلفية الفيديو المصغّر */}
       <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
         <video
           src={videos[0]}
@@ -39,12 +70,12 @@ export default function VideoPlaylist({ t, lang }) {
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
           <h2 className="text-white font-extrabold text-2xl md:text-3xl drop-shadow-lg">
-            {t.about.videoPlaceholder}
+            {t?.about?.videoPlaceholder || "Watch Our Videos"}
           </h2>
           <p className="text-white/90 text-sm md:text-base mt-3 max-w-md drop-shadow-md">
             {lang === "ar"
-              ? "يمكنك إضافة رابط الفيديو هنا"
-              : "You can add video link here"}
+              ? "يمكنك مشاهدة مجموعة الفيديوهات أدناه"
+              : "You can watch our playlist below"}
           </p>
 
           <button
@@ -59,26 +90,59 @@ export default function VideoPlaylist({ t, lang }) {
         </div>
       </div>
 
+      {/* نافذة عرض الفيديوهات */}
       {showVideo && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
           <button
             onClick={() => setShowVideo(false)}
             className="absolute top-6 right-6 text-white text-3xl font-bold hover:scale-110 transition-transform"
           >
-            ✕
+            <X />
           </button>
 
-          <div className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20">
+          <div className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-black">
             <video
               key={currentIndex}
               ref={videoRef}
               src={videos[currentIndex]}
               autoPlay
-              muted           
-              controls={false}   
+              controls
+              muted={isMuted}
               onEnded={handleVideoEnd}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain bg-black"
             />
+          </div>
+
+          {/* أدوات التحكم */}
+          <div className="absolute bottom-10 flex gap-4 items-center text-white">
+            <button onClick={prevVideo} className="p-2 hover:scale-110 transition">
+              <ChevronLeft size={28} />
+            </button>
+
+            <button onClick={togglePlay} className="p-2 hover:scale-110 transition">
+              {isPlaying ? <Pause size={28} /> : <Play size={28} />}
+            </button>
+
+            <button onClick={toggleMute} className="p-2 hover:scale-110 transition">
+              {isMuted ? <VolumeX size={28} /> : <Volume2 size={28} />}
+            </button>
+
+            <button onClick={nextVideo} className="p-2 hover:scale-110 transition">
+              <ChevronRight size={28} />
+            </button>
+          </div>
+
+          {/* مؤشر الفيديوهات */}
+          <div className="absolute bottom-4 flex space-x-2">
+            {videos.map((_, idx) => (
+              <div
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`w-3 h-3 rounded-full cursor-pointer ${
+                  idx === currentIndex ? "bg-[#C2A572]" : "bg-white/40"
+                }`}
+              />
+            ))}
           </div>
         </div>
       )}
