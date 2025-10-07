@@ -1,14 +1,7 @@
-"use client";
-import { useState, useRef } from "react";
-import { Play, Pause, Volume2, VolumeX, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useState } from 'react';
+import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-export default function VideoPlaylist({ t, lang }) {
-  const [showVideo, setShowVideo] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(false);
-  const videoRef = useRef(null);
-
+export default function VideoSeminar({ lang, t }) {
   const videos = [
     "/VID-20251002-WA0001.mp4",
     "/VID-20251002-WA0002.mp4",
@@ -18,134 +11,159 @@ export default function VideoPlaylist({ t, lang }) {
     "/VID-20251002-WA0006.mp4",
   ];
 
-  const handleVideoEnd = () => {
-    if (currentIndex < videos.length - 1) {
-      setCurrentIndex(prev => prev + 1);
+  // Calm background music URL - you can replace this with your own music file
+  const backgroundMusic = "https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3"; // Peaceful piano music
+
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [audioElement, setAudioElement] = useState(null);
+
+  const openVideo = (index) => {
+    setSelectedVideo(index);
+    // Start playing background music
+    if (!audioElement) {
+      const audio = new Audio(backgroundMusic);
+      audio.loop = true;
+      audio.volume = 0.3; // Set volume to 30%
+      audio.play().catch(err => console.log("Audio play failed:", err));
+      setAudioElement(audio);
     } else {
-      setCurrentIndex(0);
+      audioElement.play();
     }
   };
 
-  const togglePlay = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (video.paused) {
-      video.play();
-      setIsPlaying(true);
-    } else {
-      video.pause();
-      setIsPlaying(false);
+  const closeVideo = () => {
+    setSelectedVideo(null);
+    // Pause background music
+    if (audioElement) {
+      audioElement.pause();
     }
-  };
-
-  const toggleMute = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.muted = !video.muted;
-    setIsMuted(video.muted);
   };
 
   const nextVideo = () => {
-    setCurrentIndex((prev) => (prev + 1) % videos.length);
+    setSelectedVideo((prev) => (prev + 1) % videos.length);
   };
 
   const prevVideo = () => {
-    setCurrentIndex((prev) => (prev - 1 + videos.length) % videos.length);
+    setSelectedVideo((prev) => (prev - 1 + videos.length) % videos.length);
   };
 
   return (
-    <div className="order-1 md:order-2">
-      {/* خلفية الفيديو المصغّر */}
-      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-        <video
-          src={videos[0]}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-700"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-[#00000080] via-[#00000040] to-transparent" />
-
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <h2 className="text-white font-extrabold text-2xl md:text-3xl drop-shadow-lg">
-            {t?.about?.videoPlaceholder || "Watch Our Videos"}
-          </h2>
-          <p className="text-white/90 text-sm md:text-base mt-3 max-w-md drop-shadow-md">
-            {lang === "ar"
-              ? "يمكنك مشاهدة مجموعة الفيديوهات أدناه"
-              : "You can watch our playlist below"}
-          </p>
-
-          <button
-            onClick={() => {
-              setCurrentIndex(0);
-              setShowVideo(true);
-            }}
-            className="mt-5 px-6 py-2 bg-[#C2A572] hover:bg-[#8B5E3C] text-white font-semibold rounded-full shadow-lg transition-all duration-300"
-          >
-            {lang === "ar" ? "عرض الفيديوهات" : "Watch Playlist"}
-          </button>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-[#F5F5F5] to-[#E0E0E0] p-8">
+      {/* Header */}
+      <div className="text-center mb-12 animate-fade-in">
+        <h1 className="text-5xl font-bold text-[#8B5E3C] mb-4 drop-shadow-lg">
+          some og our Work in videos
+        </h1>
+        <div className="w-32 h-1 bg-gradient-to-r from-[#8B5E3C] to-[#6F6F6F] mx-auto mb-4 rounded-full"></div>
       </div>
 
-      {/* نافذة عرض الفيديوهات */}
-      {showVideo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
-          <button
-            onClick={() => setShowVideo(false)}
-            className="absolute top-6 right-6 text-white text-3xl font-bold hover:scale-110 transition-transform"
+      {/* Video Grid */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {videos.map((video, index) => (
+          <div
+            key={index}
+            className="relative group cursor-pointer"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            onClick={() => openVideo(index)}
           >
-            <X />
+            <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl border-4 border-[#E0E0E0] hover:border-[#8B5E3C]">
+              {/* Video Thumbnail */}
+              <video
+                src={video}
+                className="w-full h-64 object-cover"
+                muted
+              />
+              
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#6F6F6F]/80 via-[#6F6F6F]/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+              
+              {/* Play Button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className={`w-20 h-20 rounded-full bg-gradient-to-br from-[#8B5E3C] to-[#6F6F6F] flex items-center justify-center transition-all duration-300 ${hoveredIndex === index ? 'scale-110 shadow-2xl shadow-[#8B5E3C]/50' : 'scale-100'}`}>
+                  <Play className="w-10 h-10 text-[#F5F5F5] ml-1" fill="#F5F5F5" />
+                </div>
+              </div>
+
+              {/* Video Number */}
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="bg-gradient-to-r from-[#8B5E3C]/95 to-[#6F6F6F]/95 backdrop-blur-sm rounded-xl px-4 py-3 border border-[#F5F5F5]/20">
+                  <p className="text-[#F5F5F5] font-semibold text-lg">
+                    Seminar Video {index + 1}
+                  </p>
+                </div>
+              </div>
+
+              {/* Corner Accent */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#8B5E3C]/30 to-transparent rounded-bl-3xl"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Modal */}
+      {selectedVideo !== null && (
+        <div className="fixed inset-0 bg-[#6F6F6F]/98 z-50 flex items-center justify-center p-4 animate-fade-in">
+          {/* Close Button */}
+          <button
+            onClick={closeVideo}
+            className="absolute top-6 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-[#8B5E3C] to-[#6F6F6F] hover:from-[#8B5E3C] hover:to-[#8B5E3C] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl z-10"
+          >
+            <X className="w-7 h-7 text-[#F5F5F5]" />
           </button>
 
-          <div className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-black">
-            <video
-              key={currentIndex}
-              ref={videoRef}
-              src={videos[currentIndex]}
-              autoPlay
-              controls
-              muted={isMuted}
-              onEnded={handleVideoEnd}
-              className="w-full h-full object-contain bg-black"
-            />
-          </div>
+          {/* Previous Button */}
+          <button
+            onClick={prevVideo}
+            className="absolute left-6 w-14 h-14 rounded-full bg-gradient-to-br from-[#6F6F6F] to-[#8B5E3C] hover:from-[#8B5E3C] hover:to-[#8B5E3C] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl z-10"
+          >
+            <ChevronLeft className="w-7 h-7 text-[#F5F5F5]" />
+          </button>
 
-          {/* أدوات التحكم */}
-          <div className="absolute bottom-10 flex gap-4 items-center text-white">
-            <button onClick={prevVideo} className="p-2 hover:scale-110 transition">
-              <ChevronLeft size={28} />
-            </button>
+          {/* Next Button */}
+          <button
+            onClick={nextVideo}
+            className="absolute right-6 w-14 h-14 rounded-full bg-gradient-to-br from-[#6F6F6F] to-[#8B5E3C] hover:from-[#8B5E3C] hover:to-[#8B5E3C] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl z-10"
+          >
+            <ChevronRight className="w-7 h-7 text-[#F5F5F5]" />
+          </button>
 
-            <button onClick={togglePlay} className="p-2 hover:scale-110 transition">
-              {isPlaying ? <Pause size={28} /> : <Play size={28} />}
-            </button>
-
-            <button onClick={toggleMute} className="p-2 hover:scale-110 transition">
-              {isMuted ? <VolumeX size={28} /> : <Volume2 size={28} />}
-            </button>
-
-            <button onClick={nextVideo} className="p-2 hover:scale-110 transition">
-              <ChevronRight size={28} />
-            </button>
-          </div>
-
-          {/* مؤشر الفيديوهات */}
-          <div className="absolute bottom-4 flex space-x-2">
-            {videos.map((_, idx) => (
-              <div
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className={`w-3 h-3 rounded-full cursor-pointer ${
-                  idx === currentIndex ? "bg-[#C2A572]" : "bg-white/40"
-                }`}
+          {/* Video Player */}
+          <div className="max-w-5xl w-full">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#8B5E3C]/40 border-4 border-[#8B5E3C]">
+              <video
+                src={videos[selectedVideo]}
+                controls
+                autoPlay
+                muted
+                className="w-full max-h-[80vh] object-contain bg-black"
               />
-            ))}
+            </div>
+            <div className="mt-6 text-center bg-gradient-to-r from-[#8B5E3C] to-[#6F6F6F] rounded-xl py-3 px-6 shadow-lg">
+              <p className="text-[#F5F5F5] text-2xl font-bold">
+                Seminar Video {selectedVideo + 1} of {videos.length}
+              </p>
+            </div>
           </div>
         </div>
       )}
+
+      <style>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.6s ease-out;
+        }
+      `}</style>
     </div>
   );
 }

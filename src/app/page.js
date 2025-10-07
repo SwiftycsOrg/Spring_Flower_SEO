@@ -62,8 +62,8 @@ const content = {
       subtitle: "Turning Your Dreams Into Reality",
       cta: "Explore Our Work",
       stats: [
-        { number: "15+", label: "Years Experience" },
-        { number: "500+", label: "Projects Done" },
+        { number: "40+", label: "Years Experience" },
+        { number: "100+", label: "Projects Done" },
         { number: "100%", label: "Client Satisfaction" }
       ]
     },
@@ -197,44 +197,79 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
   return (
   <div className="min-h-screen bg-[#F8F8F8] text-[#222222]" dir={t.dir}>
       {/* Header */}
-      <header className="bg-[rgba(34,34,34,0.85)] backdrop-blur-sm shadow-sm fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="text-2xl font-bold bg-gradient-to-r from-[#8B5E3C] to-[#C2A572] bg-clip-text text-transparent">
-              {t.home.title}
-            </div>
-          
-          </div>
-          <nav className="hidden md:flex items-center gap-6">
-            <button onClick={() => scrollToSection('welcome')} className="text-sm text-white hover:text-[#C2A572] transition">
-              {lang === "ar" ? "الرئيسية" : "Home"}
-            </button>
-            <button onClick={() => scrollToSection('about')} className="text-sm text-white hover:text-[#C2A572] transition">
-              {t.about.title}
-            </button>
-            <button onClick={() => scrollToSection('gallery')} className="text-sm text-white hover:text-[#C2A572] transition">
-              {t.gallery.title}
-            </button>
-          </nav>
-          <div className="flex items-center gap-2">
-            <button
-              aria-label="toggle-lang"
-              onClick={() => setLang(lang === "ar" ? "en" : "ar")}
-              className="px-3 py-1 border border-[#E0E0E0] bg-white text-[#8B5E3C] rounded-lg text-sm hover:bg-[#F5F5F5] transition"
-            >
-              {t.toggle}
-            </button>
-            <a
-              href="https://wa.me/962795924472"
-              target="_blank"
-              rel="noreferrer"
-              className="px-4 py-2 bg-gradient-to-r from-[#C2A572] to-[#7A583C] text-white rounded-lg text-sm hover:shadow-lg transition"
-            >
-              {t.home.cta}
-            </a>
-          </div>
-        </div>
-      </header>
+      <header className="bg-[rgba(34,34,34,0.85)] backdrop-blur-sm shadow-sm">
+  <div className="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+    {/* Logo/Title */}
+    <div className="flex items-center gap-4">
+      <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#8B5E3C] to-[#C2A572] bg-clip-text text-transparent whitespace-nowrap">
+        {t.home.title}
+      </div>
+    </div>
+    
+    {/* Navigation - Desktop */}
+    <nav className="hidden md:flex items-center gap-4 lg:gap-6 flex-1 justify-center">
+      <button 
+        onClick={() => scrollToSection('welcome')} 
+        className="text-sm lg:text-base text-white hover:text-[#C2A572] transition whitespace-nowrap"
+      >
+        {lang === "ar" ? "الرئيسية" : "Home"}
+      </button>
+      <button 
+        onClick={() => scrollToSection('about')} 
+        className="text-sm lg:text-base text-white hover:text-[#C2A572] transition whitespace-nowrap"
+      >
+        {t.about.title}
+      </button>
+      <button 
+        onClick={() => scrollToSection('gallery')} 
+        className="text-sm lg:text-base text-white hover:text-[#C2A572] transition whitespace-nowrap"
+      >
+        {t.gallery.title}
+      </button>
+    </nav>
+    
+    {/* Actions */}
+    <div className="flex items-center gap-2 flex-shrink-0">
+      <button
+        aria-label="toggle-lang"
+        onClick={() => setLang(lang === "ar" ? "en" : "ar")}
+        className="px-2 sm:px-3 py-1 sm:py-2 border border-[#E0E0E0] bg-white text-[#8B5E3C] rounded-lg text-xs sm:text-sm hover:bg-[#F5F5F5] transition whitespace-nowrap"
+      >
+        {t.toggle}
+      </button>
+      <a
+        href="https://wa.me/962795924472"
+        target="_blank"
+        rel="noreferrer"
+        className="px-3 sm:px-4 py-1 sm:py-2 bg-gradient-to-r from-[#C2A572] to-[#7A583C] text-white rounded-lg text-xs sm:text-sm hover:shadow-lg transition whitespace-nowrap"
+      >
+        {t.home.cta}
+      </a>
+    </div>
+    
+    {/* Mobile Navigation */}
+    <nav className="md:hidden flex items-center justify-center gap-4 w-full border-t border-[#6F6F6F]/30 pt-3 mt-2">
+      <button 
+        onClick={() => scrollToSection('welcome')} 
+        className="text-sm text-white hover:text-[#C2A572] transition whitespace-nowrap"
+      >
+        {lang === "ar" ? "الرئيسية" : "Home"}
+      </button>
+      <button 
+        onClick={() => scrollToSection('about')} 
+        className="text-sm text-white hover:text-[#C2A572] transition whitespace-nowrap"
+      >
+        {t.about.title}
+      </button>
+      <button 
+        onClick={() => scrollToSection('gallery')} 
+        className="text-sm text-white hover:text-[#C2A572] transition whitespace-nowrap"
+      >
+        {t.gallery.title}
+      </button>
+    </nav>
+  </div>
+</header>
 
       {/* Welcome Section */}
       <section id="welcome" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
@@ -246,7 +281,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
           <div className="mb-8 animate-fade-in">
-            <h1 className="text-6xl md:text-8xl font-extrabold mb-4 bg-gradient-to-r from-[#8B5E3C] via-[#C2A572] to-[#7A583C] bg-clip-text text-transparent">
+            <h1 className="text-6xl mb-12 z-30   md:text-8xl font-extrabold  bg-gradient-to-r from-[#8B5E3C] via-[#C2A572] to-[#7A583C] bg-clip-text text-transparent">
               {t.welcome.hero}
             </h1>
             <p className="text-2xl md:text-3xl font-light text-[#6F6F6F] mb-2">
@@ -281,48 +316,74 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
       </section>
 
       {/* About Section with Video */}
-      <section id="about" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#8B5E3C] to-[#C2A572] bg-clip-text text-transparent">
-              {t.about.title}
-            </h2>
-            <p className="text-xl text-[#6F6F6F]">{t.about.subtitle}</p>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div className="order-2 md:order-1">
-              <p className="text-lg text-[#222222] leading-relaxed mb-6">
-                {t.about.description}
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                {t.about.features.map((feature, i) => (
-                  <div key={i} className="bg-gradient-to-br from-[#F5F5F5] to-[#E0E0E0] rounded-xl p-4">
-                    <h4 className="font-bold text-[#8B5E3C] mb-1">{feature.title}</h4>
-                    <p className="text-sm text-[#6F6F6F]">{feature.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-<VideoPlaylist lang={lang} t={t} />
-          </div>
+  <section id="about" className="py-20 bg-white">
+  <div className="max-w-6xl mx-auto px-4">
+    {/* 🟤 العنوان */}
+    <div className="text-center mb-12">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#8B5E3C] to-[#C2A572] bg-clip-text text-transparent">
+        {t.about.title}
+      </h2>
+      <p className="text-xl text-[#6F6F6F]">{t.about.subtitle}</p>
+    </div>
 
-          {/* Services Preview */}
-          <div className="mt-16">
-            <h3 className="text-3xl font-bold text-center mb-8">{t.home.services.title}</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {Object.entries(t.home.services).filter(([key]) => key !== 'title').map(([key, value]) => (
-                <div key={key} className="bg-gradient-to-br from-[#F5F5F5] to-[#E0E0E0] rounded-xl p-6 text-center hover:shadow-lg transition cursor-pointer" onClick={() => scrollToSection('gallery')}>
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#8B5E3C] to-[#C2A572] rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-2xl text-white">✨</span>
-                  </div>
-                  <h4 className="font-semibold text-[#222222]">{value}</h4>
-                </div>
-              ))}
+    {/* 🟤 الوصف والمميزات */}
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="order-2 md:order-1">
+        <p className="text-lg text-[#222222] leading-relaxed mb-6">
+          {t.about.description}
+        </p>
+
+        <div className="grid grid-cols-2 gap-4">
+          {t.about.features.map((feature, i) => (
+            <div
+              key={i}
+              className="bg-gradient-to-br from-[#F5F5F5] to-[#E0E0E0] rounded-xl p-4 shadow-sm hover:shadow-md transition"
+            >
+              <h4 className="font-bold text-[#8B5E3C] mb-1">{feature.title}</h4>
+              <p className="text-sm text-[#6F6F6F]">{feature.desc}</p>
             </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+
+      {/* 🎨 تصميم فني بديل عن الصورة */}
+      <div className="order-1 md:order-2 flex justify-center">
+        <div className="relative w-full max-w-md h-96">
+          {/* دوائر متداخلة */}
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-gradient-to-br from-[#8B5E3C]/20 to-[#C2A572]/20 rounded-full blur-2xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-gradient-to-br from-[#6F6F6F]/15 to-[#E0E0E0]/30 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          
+          {/* أشكال هندسية */}
+          <div className="absolute top-10 right-10 w-24 h-24 border-4 border-[#8B5E3C] rounded-lg rotate-12 opacity-40"></div>
+          <div className="absolute bottom-16 left-8 w-32 h-32 border-4 border-[#C2A572] rounded-full opacity-30"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-br from-[#8B5E3C] to-[#6F6F6F] rounded-2xl shadow-2xl flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-3 bg-[#F5F5F5] rounded-full flex items-center justify-center">
+                <svg className="w-10 h-10 text-[#8B5E3C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <p className="text-[#F5F5F5] font-bold text-sm">Excellence</p>
+            </div>
+          </div>
+          
+          {/* نقاط زخرفية */}
+          <div className="absolute top-8 left-1/3 w-3 h-3 bg-[#8B5E3C] rounded-full"></div>
+          <div className="absolute bottom-12 right-1/3 w-2 h-2 bg-[#C2A572] rounded-full"></div>
+          <div className="absolute top-1/3 right-12 w-4 h-4 bg-[#6F6F6F] rounded-full opacity-50"></div>
+          
+          {/* خطوط متموجة */}
+          <svg className="absolute top-0 left-0 w-full h-full opacity-10" viewBox="0 0 400 400">
+            <path d="M 50 200 Q 150 100, 250 200 T 450 200" stroke="#8B5E3C" strokeWidth="3" fill="none"/>
+            <path d="M 0 250 Q 100 150, 200 250 T 400 250" stroke="#6F6F6F" strokeWidth="2" fill="none"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <VideoPlaylist t={t} lang={lang} />
 
       {/* Gallery Section */}
       <section id="gallery" className="py-20 bg-[#F8F8F8]">
