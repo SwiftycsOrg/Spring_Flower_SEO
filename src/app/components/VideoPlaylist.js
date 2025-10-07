@@ -53,8 +53,7 @@ export default function VideoSeminar({ lang, t }) {
       {/* Header */}
       <div className="text-center mb-12 animate-fade-in">
         <h1 className="text-5xl font-bold text-[#8B5E3C] mb-4 drop-shadow-lg">
-          some og our Work in videos
-        </h1>
+            Showcase of Our Work        </h1>
         <div className="w-32 h-1 bg-gradient-to-r from-[#8B5E3C] to-[#6F6F6F] mx-auto mb-4 rounded-full"></div>
       </div>
 
