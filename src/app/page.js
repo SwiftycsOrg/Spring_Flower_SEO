@@ -281,7 +281,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
           <div className="mb-8 animate-fade-in">
-            <h1 className="text-6xl mb-12 z-30   md:text-8xl font-extrabold  bg-gradient-to-r from-[#8B5E3C] via-[#C2A572] to-[#7A583C] bg-clip-text text-transparent">
+            <h1 className="text-6xl mb-12 z-30   md:text-8xl font-extrabold  text-[#7A583C] bg-clip-text ">
               {t.welcome.hero}
             </h1>
             <p className="text-2xl md:text-3xl font-light text-[#6F6F6F] mb-2">
@@ -364,7 +364,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <p className="text-[#F5F5F5] font-bold text-sm">Excellence</p>
+              <p className="text-[#F5F5F5] font-bold text-sm">{lang === "ar" ? "ممتاز" : "Excellence"}</p>
             </div>
           </div>
           
@@ -460,30 +460,42 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
       </section>
 
       {/* Modal */}
+{/* Modal */}
       {selected && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white max-w-2xl w-full rounded-3xl overflow-hidden shadow-2xl">
-            <div className="flex items-center justify-between p-6 border-b border-[#E0E0E0] bg-gradient-to-r from-[#F5F5F5] to-[#E0E0E0]">
-              <h4 className="font-bold text-xl">{selected.title}</h4>
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4" onClick={() => setSelected(null)}>
+          <div className="bg-white max-w-4xl w-full max-h-[95vh] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col" onClick={(e) => e.stopPropagation()}>
+            {/* Header */}
+            <div className="flex items-center justify-between p-3 sm:p-4 md:p-6 border-b border-[#E0E0E0] bg-gradient-to-r from-[#F5F5F5] to-[#E0E0E0] flex-shrink-0">
+              <h4 className="font-bold text-base sm:text-lg md:text-xl line-clamp-1">{selected.title}</h4>
               <button 
                 onClick={() => setSelected(null)} 
-                className="w-10 h-10 rounded-full bg-white hover:bg-[#F5F5F5] transition flex items-center justify-center"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-[#F5F5F5] transition flex items-center justify-center flex-shrink-0 ml-2"
               >
                 ✕
               </button>
             </div>
-            <div className="p-6 flex  items-center justify-center">
-              <div className="flex flex-col justify-between">
-                <div>
-                  <p className="text-[#222222] mb-4 leading-relaxed">{t.home.description}</p>
-                  <div className="bg-gradient-to-br from-[#F5F5F5] to-[#E0E0E0] rounded-xl p-4">
-                    <h5 className="font-semibold mb-2">{t.home.services[selected.category]}</h5>
-                    <p className="text-sm text-[#6F6F6F]">
-                      {lang === "ar" 
-                        ? "نقدم أفضل الحلول بأعلى جودة وأحدث التصاميم" 
-                        : "We provide the best solutions with highest quality and latest designs"}
-                    </p>
-                  </div>
+            
+            {/* Scrollable Content */}
+            <div className="overflow-y-auto p-3 sm:p-4 md:p-6">
+              {/* Large Image Display */}
+              <div className="mb-4 sm:mb-6 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src={selected.img}
+                  alt={selected.title}
+                  className="w-full h-auto max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh] object-contain bg-gradient-to-br from-[#F5F5F5] to-[#E0E0E0]"
+                />
+              </div>
+              
+              {/* Description */}
+              <div className="flex flex-col">
+                <p className="text-[#222222] mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">{t.home.description}</p>
+                <div className="bg-gradient-to-br from-[#F5F5F5] to-[#E0E0E0] rounded-lg sm:rounded-xl p-3 sm:p-4 mb-3 sm:mb-4">
+                  <h5 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">{t.home.services[selected.category]}</h5>
+                  <p className="text-xs sm:text-sm text-[#6F6F6F]">
+                    {lang === "ar" 
+                      ? "نقدم أفضل الحلول بأعلى جودة وأحدث التصاميم" 
+                      : "We provide the best solutions with highest quality and latest designs"}
+                  </p>
                 </div>
                 <a
                   href={`https://wa.me/962795924472?text=${encodeURIComponent(
@@ -491,7 +503,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-4 px-6 py-3 bg-gradient-to-r from-[#C2A572] to-[#7A583C] text-white rounded-xl font-semibold hover:shadow-lg transition text-center"
+                  className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-[#C2A572] to-[#7A583C] text-white rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold hover:shadow-lg transition text-center"
                 >
                   {t.contact.whatsapp}
                 </a>
@@ -500,7 +512,6 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
           </div>
         </div>
       )}
-
       {/* Footer */}
    <footer className="bg-gradient-to-br from-[#121212] via-[#1a1410] to-[#2a1f1a] text-white py-12">
   <div className="max-w-6xl mx-auto px-4">
