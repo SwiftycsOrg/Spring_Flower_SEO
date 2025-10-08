@@ -12,7 +12,7 @@ export default function VideoSeminar({ lang, t }) {
   ];
 
   // Calm background music URL - you can replace this with your own music file
-  const backgroundMusic = "https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3"; // Peaceful piano music
+  const backgroundMusic = "/ambient-background-339939.mp3"; // Peaceful piano music
 
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
