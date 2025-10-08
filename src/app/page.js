@@ -63,7 +63,7 @@ const content = {
       cta: "Explore Our Work",
       stats: [
         { number: "40+", label: "Years Experience" },
-        { number: "100+", label: "Projects Done" },
+        { number: "1000+", label: "Projects Done" },
         { number: "100%", label: "Client Satisfaction" }
       ]
     },
