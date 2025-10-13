@@ -109,12 +109,16 @@ const content = {
 };
 
 const sampleItems = [
-  { id: 1, category: "wood", title: "مطابخ خشبية 1" , img: "/New folder/IMG-20251002-WA0003.jpg"},
+  { id: 1, category: "wood", title: "مطابخ خشبية " , img: "/New folder/IMG-20251002-WA0003.jpg"},
   { id: 2, category: "wood", title: "مطابخ خشبية "  , img: "/New folder/IMG-20251002-WA0007.jpg"}, 
-  { id: 3, category: "wood", title: "مطابخ خشبية 1", img: "/New folder/IMG-20251002-WA0015.jpg " },
-  { id: 4, category: "aluminum", title: "مطابخ ألمنيوم 2"  , img: "New folder/IMG-20251002-WA0011.jpg"},
-  { id: 5, category: "aluminum", title: "مطابخ ألمنيوم 2" , img: "/New folder/IMG-20251002-WA0010.jpg"},
-  { id: 6, category: "aluminum", title: "مطابخ ألمنيوم 1" , img: "/New folder/IMG-20251002-WA0008.jpg"},
+  { id: 3, category: "wood", title: "مطابخ خشبية ", img: "/New folder/IMG-20251002-WA0015.jpg"},
+  { id: 4, category: "wood", title: "مطابخ خشبية ", img: "/WhatsApp Image 2025-10-12 at 15.43.51_33356bdc.jpg"},
+  { id: 5, category: "wood", title: "مطابخ خشبية ", img: "/WhatsApp Image 2025-10-12 at 15.43.52_d0dd12a1.jpg"},
+  { id: 6, category: "wood", title: "مطابخ خشبية ", img: "/WhatsApp Image 2025-10-12 at 15.43.52_ff26f969.jpg"},
+  { id: 7, category: "wood", title: "مطابخ خشبية ", img: "/WhatsApp Image 2025-10-12 at 15.43.53_92bfdfd5.jpg"},
+  { id: 8, category: "aluminum", title: "مطابخ ألمنيوم "  , img: "/New folder/IMG-20251002-WA0011.jpg"},
+  { id: 9, category: "aluminum", title: "مطابخ ألمنيوم " , img: "/New folder/IMG-20251002-WA0010.jpg"},
+  { id: 10, category: "aluminum", title: "مطابخ ألمنيوم " , img: "/New folder/IMG-20251002-WA0008.jpg"},
 ];
 
 
@@ -541,14 +545,14 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
 
       {/* فيسبوك */}
       <a
-        href="https://www.facebook.com/"
+        href="https://www.facebook.com/share/1FkkrAjNJu/?mibextid=wwXIfr"
         target="_blank"
         rel="noreferrer"
         className="hover:text-[#C2A572] transition flex items-center gap-2"
       >
         <img
           src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-          alt="Facebook"
+          alt="Facebook"s
           className="w-6 h-6"
         />
         Facebook

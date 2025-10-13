@@ -1,30 +1,63 @@
 import { useState } from 'react';
 import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-export default function VideoSeminar({ lang, t }) {
+export default function VideoSeminar({ lang = "en" }) {
   const videos = [
-    "/VID-20251002-WA0001.mp4",
-    "/VID-20251002-WA0002.mp4",
-    "/VID-20251002-WA0004.mp4",
-    "/VID-20251002-WA0007.mp4",
-    "/VID-20251002-WA0005.mp4",
-    "/VID-20251002-WA0006.mp4",
+    {
+      src: "/VID-20251002-WA0001.mp4",
+      titleEn: "Seminar Video 1",
+      descEn: "A glimpse into our elegant floral arrangements and creative touches.",
+      titleAr: "الفيديو 1",
+      descAr: "لمحة عن تنسيقاتنا ال الأنيقة ولمساتنا الإبداعية."
+    },
+    {
+      src: "/VID-20251002-WA0002.mp4",
+      titleEn: "Seminar Video 2",
+      descEn: "Showcasing event decoration with a blend of beauty and precision.",
+      titleAr: "الفيديو 2",
+      descAr: "عرض لتزيين الفعاليات بمزيج من الجمال والدقة."
+    },
+    {
+      src: "/VID-20251002-WA0004.mp4",
+      titleEn: "Seminar Video 3",
+      descEn: "Highlighting our detailed craftsmanship in every floral piece.",
+      titleAr: "الفيديو 3",
+      descAr: "إبراز دقة الحرفية في كل قطعة  نصنعها."
+    },
+    {
+      src: "/VID-20251002-WA0007.mp4",
+      titleEn: "Seminar Video 4",
+      descEn: "Behind the scenes of creating unique arrangements for our clients.",
+      titleAr: "الفيديو 4",
+      descAr: "كواليس إعداد تنسيقات فريدة لعملائنا المميزين."
+    },
+    {
+      src: "/VID-20251002-WA0005.mp4",
+      titleEn: "Seminar Video 5",
+      descEn: "Where creativity meets natural beauty — our signature work style.",
+      titleAr: "الفيديو 5",
+      descAr: "حيث يلتقي الإبداع مع الجمال الطبيعي — أسلوب عملنا المميز."
+    },
+    {
+      src: "/VID-20251002-WA0006.mp4",
+      titleEn: "Seminar Video 6",
+      descEn: "A final touch of elegance and passion for every floral project.",
+      titleAr: "الفيديو 6",
+      descAr: "لمسة أخيرة من الأناقة والشغف في كل مشروع زهري."
+    },
   ];
 
-  // Calm background music URL - you can replace this with your own music file
-  const backgroundMusic = "/ambient-background-339939.mp3"; // Peaceful piano music
-
+  const backgroundMusic = "/ambient-background-339939.mp3";
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [audioElement, setAudioElement] = useState(null);
 
   const openVideo = (index) => {
     setSelectedVideo(index);
-    // Start playing background music
     if (!audioElement) {
       const audio = new Audio(backgroundMusic);
       audio.loop = true;
-      audio.volume = 0.3; // Set volume to 30%
+      audio.volume = 0.3;
       audio.play().catch(err => console.log("Audio play failed:", err));
       setAudioElement(audio);
     } else {
@@ -34,7 +67,6 @@ export default function VideoSeminar({ lang, t }) {
 
   const closeVideo = () => {
     setSelectedVideo(null);
-    // Pause background music
     if (audioElement) {
       audioElement.pause();
     }
@@ -53,7 +85,8 @@ export default function VideoSeminar({ lang, t }) {
       {/* Header */}
       <div className="text-center mb-12 animate-fade-in">
         <h1 className="text-5xl font-bold text-[#8B5E3C] mb-4 drop-shadow-lg">
-            Showcase of Our Work        </h1>
+          {lang === "ar" ? "بعض من أعمالنا" : "Some of Our Work"}
+        </h1>
         <div className="w-32 h-1 bg-gradient-to-r from-[#8B5E3C] to-[#6F6F6F] mx-auto mb-4 rounded-full"></div>
       </div>
 
@@ -68,33 +101,26 @@ export default function VideoSeminar({ lang, t }) {
             onClick={() => openVideo(index)}
           >
             <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl border-4 border-[#E0E0E0] hover:border-[#8B5E3C]">
-              {/* Video Thumbnail */}
-              <video
-                src={video}
-                className="w-full h-64 object-cover"
-                muted
-              />
-              
-              {/* Gradient Overlay */}
+              <video src={video.src} className="w-full h-64 object-cover" muted />
               <div className="absolute inset-0 bg-gradient-to-t from-[#6F6F6F]/80 via-[#6F6F6F]/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-              
-              {/* Play Button */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className={`w-20 h-20 rounded-full bg-gradient-to-br from-[#8B5E3C] to-[#6F6F6F] flex items-center justify-center transition-all duration-300 ${hoveredIndex === index ? 'scale-110 shadow-2xl shadow-[#8B5E3C]/50' : 'scale-100'}`}>
                   <Play className="w-10 h-10 text-[#F5F5F5] ml-1" fill="#F5F5F5" />
                 </div>
               </div>
 
-              {/* Video Number */}
+              {/* Video Info */}
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="bg-gradient-to-r from-[#8B5E3C]/95 to-[#6F6F6F]/95 backdrop-blur-sm rounded-xl px-4 py-3 border border-[#F5F5F5]/20">
                   <p className="text-[#F5F5F5] font-semibold text-lg">
-                    Seminar Video {index + 1}
+                    {lang === "ar" ? video.titleAr : video.titleEn}
+                  </p>
+                  <p className="text-[#E8E8E8] text-sm mt-1">
+                    {lang === "ar" ? video.descAr : video.descEn}
                   </p>
                 </div>
               </div>
 
-              {/* Corner Accent */}
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#8B5E3C]/30 to-transparent rounded-bl-3xl"></div>
             </div>
           </div>
@@ -104,35 +130,29 @@ export default function VideoSeminar({ lang, t }) {
       {/* Modal */}
       {selectedVideo !== null && (
         <div className="fixed inset-0 bg-[#6F6F6F]/98 z-50 flex items-center justify-center p-4 animate-fade-in">
-          {/* Close Button */}
           <button
             onClick={closeVideo}
-            className="absolute top-6 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-[#8B5E3C] to-[#6F6F6F] hover:from-[#8B5E3C] hover:to-[#8B5E3C] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl z-10"
+            className="absolute top-6 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-[#8B5E3C] to-[#6F6F6F] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl z-10"
           >
             <X className="w-7 h-7 text-[#F5F5F5]" />
           </button>
-
-          {/* Previous Button */}
           <button
             onClick={prevVideo}
-            className="absolute left-6 w-14 h-14 rounded-full bg-gradient-to-br from-[#6F6F6F] to-[#8B5E3C] hover:from-[#8B5E3C] hover:to-[#8B5E3C] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl z-10"
+            className="absolute left-6 w-14 h-14 rounded-full bg-gradient-to-br from-[#6F6F6F] to-[#8B5E3C] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl z-10"
           >
             <ChevronLeft className="w-7 h-7 text-[#F5F5F5]" />
           </button>
-
-          {/* Next Button */}
           <button
             onClick={nextVideo}
-            className="absolute right-6 w-14 h-14 rounded-full bg-gradient-to-br from-[#6F6F6F] to-[#8B5E3C] hover:from-[#8B5E3C] hover:to-[#8B5E3C] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl z-10"
+            className="absolute right-6 w-14 h-14 rounded-full bg-gradient-to-br from-[#6F6F6F] to-[#8B5E3C] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl z-10"
           >
             <ChevronRight className="w-7 h-7 text-[#F5F5F5]" />
           </button>
 
-          {/* Video Player */}
           <div className="max-w-5xl w-full">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#8B5E3C]/40 border-4 border-[#8B5E3C]">
               <video
-                src={videos[selectedVideo]}
+                src={videos[selectedVideo].src}
                 controls
                 autoPlay
                 muted
@@ -141,7 +161,9 @@ export default function VideoSeminar({ lang, t }) {
             </div>
             <div className="mt-6 text-center bg-gradient-to-r from-[#8B5E3C] to-[#6F6F6F] rounded-xl py-3 px-6 shadow-lg">
               <p className="text-[#F5F5F5] text-2xl font-bold">
-                Seminar Video {selectedVideo + 1} of {videos.length}
+                {lang === "ar"
+                  ? `${videos[selectedVideo].titleAr} من ${videos.length}`
+                  : `${videos[selectedVideo].titleEn} of ${videos.length}`}
               </p>
             </div>
           </div>
@@ -150,18 +172,10 @@ export default function VideoSeminar({ lang, t }) {
 
       <style>{`
         @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out;
-        }
+        .animate-fade-in { animation: fade-in 0.6s ease-out; }
       `}</style>
     </div>
   );
