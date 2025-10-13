@@ -153,8 +153,6 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
     { key: "all", label: t.gallery.categories.all },
     { key: "wood", label: t.gallery.categories.wood },
     { key: "aluminum", label: t.gallery.categories.aluminum },
-    { key: "windows", label: t.gallery.categories.windows },
-    { key: "decoration", label: t.gallery.categories.decoration },
   ];
 
   const items = sampleItems.filter((it) => filter === "all" || it.category === filter);
@@ -353,15 +351,12 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
 
      <div className="order-1 md:order-2 flex justify-center">
   <div className="relative w-full max-w-md h-96">
-    {/* دوائر متداخلة */}
     <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-gradient-to-br from-[#8B5E3C]/20 to-[#C2A572]/20 rounded-full blur-2xl animate-pulse"></div>
     <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-gradient-to-br from-[#6F6F6F]/15 to-[#E0E0E0]/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
-    {/* أشكال هندسية */}
     <div className="absolute top-10 right-10 w-24 h-24 border-4 border-[#8B5E3C] rounded-lg rotate-12 opacity-40"></div>
     <div className="absolute bottom-16 left-8 w-32 h-32 border-4 border-[#C2A572] rounded-full opacity-30"></div>
 
-    {/* الصورة بدل المربع البني */}
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-2xl shadow-2xl overflow-hidden">
       <img
         src="/ChatGPT Image Oct 13, 2025, 03_48_22 PM.png" 
@@ -370,12 +365,10 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
       />
     </div>
 
-    {/* نقاط زخرفية */}
     <div className="absolute top-8 left-1/3 w-3 h-3 bg-[#8B5E3C] rounded-full"></div>
     <div className="absolute bottom-12 right-1/3 w-2 h-2 bg-[#C2A572] rounded-full"></div>
     <div className="absolute top-1/3 right-12 w-4 h-4 bg-[#6F6F6F] rounded-full opacity-50"></div>
 
-    {/* خطوط متموجة */}
     <svg className="absolute top-0 left-0 w-full h-full opacity-10" viewBox="0 0 400 400">
       <path d="M 50 200 Q 150 100, 250 200 T 450 200" stroke="#8B5E3C" strokeWidth="3" fill="none" />
       <path d="M 0 250 Q 100 150, 200 250 T 400 250" stroke="#6F6F6F" strokeWidth="2" fill="none" />
