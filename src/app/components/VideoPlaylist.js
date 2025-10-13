@@ -7,42 +7,42 @@ export default function VideoSeminar({ lang = "en" }) {
       src: "/VID-20251002-WA0001.mp4",
       titleEn: "Seminar Video 1",
       descEn: "A glimpse into our elegant floral arrangements and creative touches.",
-      titleAr: "الفيديو 1",
+      titleAr: "التصميمم 1",
       descAr: "لمحة عن تنسيقاتنا ال الأنيقة ولمساتنا الإبداعية."
     },
     {
       src: "/VID-20251002-WA0002.mp4",
       titleEn: "Seminar Video 2",
       descEn: "Showcasing event decoration with a blend of beauty and precision.",
-      titleAr: "الفيديو 2",
+      titleAr: "التصميمم 2",
       descAr: "عرض لتزيين الفعاليات بمزيج من الجمال والدقة."
     },
     {
       src: "/VID-20251002-WA0004.mp4",
       titleEn: "Seminar Video 3",
       descEn: "Highlighting our detailed craftsmanship in every floral piece.",
-      titleAr: "الفيديو 3",
+      titleAr: "التصميمم 3",
       descAr: "إبراز دقة الحرفية في كل قطعة  نصنعها."
     },
     {
       src: "/VID-20251002-WA0007.mp4",
       titleEn: "Seminar Video 4",
       descEn: "Behind the scenes of creating unique arrangements for our clients.",
-      titleAr: "الفيديو 4",
+      titleAr: "التصميمم 4",
       descAr: "كواليس إعداد تنسيقات فريدة لعملائنا المميزين."
     },
     {
       src: "/VID-20251002-WA0005.mp4",
       titleEn: "Seminar Video 5",
       descEn: "Where creativity meets natural beauty — our signature work style.",
-      titleAr: "الفيديو 5",
+      titleAr: "التصميمم 5",
       descAr: "حيث يلتقي الإبداع مع الجمال الطبيعي — أسلوب عملنا المميز."
     },
     {
       src: "/VID-20251002-WA0006.mp4",
       titleEn: "Seminar Video 6",
       descEn: "A final touch of elegance and passion for every floral project.",
-      titleAr: "الفيديو 6",
+      titleAr: "التصميمم 6",
       descAr: "لمسة أخيرة من الأناقة والشغف في كل مشروع زهري."
     },
   ];
@@ -102,15 +102,15 @@ export default function VideoSeminar({ lang = "en" }) {
           >
             <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl border-4 border-[#E0E0E0] hover:border-[#8B5E3C]">
               <video src={video.src} className="w-full h-64 object-cover" muted />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#6F6F6F]/80 via-[#6F6F6F]/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0    bg-gradient-to-t from-[#6F6F6F]/80 via-[#6F6F6F]/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+              <div className="absolute top-[-80px]   inset-0 flex items-center justify-center">
                 <div className={`w-20 h-20 rounded-full bg-gradient-to-br from-[#8B5E3C] to-[#6F6F6F] flex items-center justify-center transition-all duration-300 ${hoveredIndex === index ? 'scale-110 shadow-2xl shadow-[#8B5E3C]/50' : 'scale-100'}`}>
                   <Play className="w-10 h-10 text-[#F5F5F5] ml-1" fill="#F5F5F5" />
                 </div>
               </div>
 
               {/* Video Info */}
-              <div className="absolute bottom-4 left-4 right-4">
+              <div className="absolute   bottom-4 left-4 right-4">
                 <div className="bg-gradient-to-r from-[#8B5E3C]/95 to-[#6F6F6F]/95 backdrop-blur-sm rounded-xl px-4 py-3 border border-[#F5F5F5]/20">
                   <p className="text-[#F5F5F5] font-semibold text-lg">
                     {lang === "ar" ? video.titleAr : video.titleEn}
