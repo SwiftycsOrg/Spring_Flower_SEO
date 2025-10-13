@@ -7,42 +7,42 @@ export default function VideoSeminar({ lang = "en" }) {
       src: "/VID-20251002-WA0001.mp4",
       titleEn: "Seminar Video 1",
       descEn: "A glimpse into our elegant floral arrangements and creative touches.",
-      titleAr: "التصميمم 1",
+      titleAr: "التصميم 1",
       descAr: "لمحة عن تنسيقاتنا ال الأنيقة ولمساتنا الإبداعية."
     },
     {
       src: "/VID-20251002-WA0002.mp4",
       titleEn: "Seminar Video 2",
       descEn: "Showcasing event decoration with a blend of beauty and precision.",
-      titleAr: "التصميمم 2",
+      titleAr: "التصميم 2",
       descAr: "عرض لتزيين الفعاليات بمزيج من الجمال والدقة."
     },
     {
       src: "/VID-20251002-WA0004.mp4",
       titleEn: "Seminar Video 3",
       descEn: "Highlighting our detailed craftsmanship in every floral piece.",
-      titleAr: "التصميمم 3",
+      titleAr: "التصميم 3",
       descAr: "إبراز دقة الحرفية في كل قطعة  نصنعها."
     },
     {
       src: "/VID-20251002-WA0007.mp4",
       titleEn: "Seminar Video 4",
       descEn: "Behind the scenes of creating unique arrangements for our clients.",
-      titleAr: "التصميمم 4",
+      titleAr: "التصميم 4",
       descAr: "كواليس إعداد تنسيقات فريدة لعملائنا المميزين."
     },
     {
       src: "/VID-20251002-WA0005.mp4",
       titleEn: "Seminar Video 5",
       descEn: "Where creativity meets natural beauty — our signature work style.",
-      titleAr: "التصميمم 5",
+      titleAr: "التصميم 5",
       descAr: "حيث يلتقي الإبداع مع الجمال الطبيعي — أسلوب عملنا المميز."
     },
     {
       src: "/VID-20251002-WA0006.mp4",
       titleEn: "Seminar Video 6",
       descEn: "A final touch of elegance and passion for every floral project.",
-      titleAr: "التصميمم 6",
+      titleAr: "التصميم 6",
       descAr: "لمسة أخيرة من الأناقة والشغف في كل مشروع زهري."
     },
   ];

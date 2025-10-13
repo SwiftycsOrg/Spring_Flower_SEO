@@ -329,7 +329,6 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
       <p className="text-xl text-[#6F6F6F]">{t.about.subtitle}</p>
     </div>
 
-    {/* 🟤 الوصف والمميزات */}
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div className="order-2 md:order-1">
         <p className="text-lg text-[#222222] leading-relaxed mb-6">
@@ -349,25 +348,25 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
         </div>
       </div>
 
-     <div className="order-1 md:order-2 flex justify-center">
-  <div className="relative w-full max-w-md h-96">
-    <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-gradient-to-br from-[#8B5E3C]/20 to-[#C2A572]/20 rounded-full blur-2xl animate-pulse"></div>
-    <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-gradient-to-br from-[#6F6F6F]/15 to-[#E0E0E0]/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+<div className="order-1 md:order-2 flex justify-center">
+  <div className="relative w-full max-w-lg h-[600px]">
+    <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-[#8B5E3C]/20 to-[#C2A572]/20 rounded-full blur-2xl animate-pulse"></div>
+    <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-gradient-to-br from-[#6F6F6F]/15 to-[#E0E0E0]/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
-    <div className="absolute top-10 right-10 w-24 h-24 border-4 border-[#8B5E3C] rounded-lg rotate-12 opacity-40"></div>
-    <div className="absolute bottom-16 left-8 w-32 h-32 border-4 border-[#C2A572] rounded-full opacity-30"></div>
+    <div className="absolute top-10 right-10 w-32 h-32 border-4 border-[#8B5E3C] rounded-lg rotate-12 opacity-40"></div>
+    <div className="absolute bottom-16 left-8 w-40 h-40 border-4 border-[#C2A572] rounded-full opacity-30"></div>
 
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-2xl shadow-2xl overflow-hidden">
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56   h-56 sm:w-80 sm:h-80 rounded-2xl shadow-2xl overflow-hidden">
       <img
-        src="/ChatGPT Image Oct 13, 2025, 03_48_22 PM.png" 
+        src="/ChatGPT Image Oct 13, 2025, 03_48_22 PM.png"
         alt="Spring Flowers"
         className="w-full h-full object-cover"
       />
     </div>
 
-    <div className="absolute top-8 left-1/3 w-3 h-3 bg-[#8B5E3C] rounded-full"></div>
-    <div className="absolute bottom-12 right-1/3 w-2 h-2 bg-[#C2A572] rounded-full"></div>
-    <div className="absolute top-1/3 right-12 w-4 h-4 bg-[#6F6F6F] rounded-full opacity-50"></div>
+    <div className="absolute top-8 left-1/3 w-4 h-4 bg-[#8B5E3C] rounded-full"></div>
+    <div className="absolute bottom-12 right-1/3 w-3 h-3 bg-[#C2A572] rounded-full"></div>
+    <div className="absolute top-1/3 right-12 w-5 h-5 bg-[#6F6F6F] rounded-full opacity-50"></div>
 
     <svg className="absolute top-0 left-0 w-full h-full opacity-10" viewBox="0 0 400 400">
       <path d="M 50 200 Q 150 100, 250 200 T 450 200" stroke="#8B5E3C" strokeWidth="3" fill="none" />
@@ -375,6 +374,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
     </svg>
   </div>
 </div>
+
 
     </div>
   </div>
