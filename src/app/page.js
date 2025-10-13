@@ -300,7 +300,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
           >
             {t.welcome.cta}
           </button>
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16  mb-16 max-w-3xl mx-auto">
   {t.welcome.stats.map((stat, i) => (
     <div
       key={i}
