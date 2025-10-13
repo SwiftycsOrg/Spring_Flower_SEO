@@ -356,7 +356,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
     <div className="absolute top-10 right-10 w-32 h-32 border-4 border-[#8B5E3C] rounded-lg rotate-12 opacity-40"></div>
     <div className="absolute bottom-16 left-8 w-40 h-40 border-4 border-[#C2A572] rounded-full opacity-30"></div>
 
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full   h-56 sm:w-80 sm:h-80 rounded-2xl shadow-2xl overflow-hidden">
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full   h-80 sm:w-80 sm:h-80 rounded-2xl shadow-2xl overflow-hidden">
       <img
         src="/ChatGPT Image Oct 13, 2025, 03_48_22 PM.png"
         alt="Spring Flowers"
