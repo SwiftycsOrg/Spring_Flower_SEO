@@ -352,7 +352,6 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
 <div className="order-1 md:order-2 flex justify-center">
   <div className="relative w-full max-w-lg h-[600px]">
     <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-[#8B5E3C]/20 to-[#C2A572]/20 rounded-full blur-2xl animate-pulse"></div>
-    <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-gradient-to-br from-[#6F6F6F]/15 to-[#E0E0E0]/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
     <div className="absolute top-10 right-10 w-32 h-32 border-4 border-[#8B5E3C] rounded-lg rotate-12 opacity-40"></div>
     <div className="absolute bottom-16 left-8 w-40 h-40 border-4 border-[#C2A572] rounded-full opacity-30"></div>
