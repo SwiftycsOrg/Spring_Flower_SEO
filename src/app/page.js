@@ -1,3 +1,41 @@
+
+export const metadata = {
+  title: "شركة أزهار الربيع | مطابخ خشبية وألمنيوم فاخرة في الأردن",
+  description:
+    "نحن شركة أزهار الربيع، المتخصصة في تصميم وتنفيذ المطابخ العصرية والديكورات الداخلية في الأردن. أكثر من 40 سنة من الخبرة و1000 مشروع منجز بجودة عالية.",
+  keywords: [
+    "مطابخ خشبية",
+    "مطابخ ألمنيوم",
+    "ديكور داخلي",
+    "تصميم مطابخ",
+    "أزهار الربيع الأردن",
+  ],
+  openGraph: {
+    title: "شركة أزهار الربيع | تصميم مطابخ وديكورات في الأردن",
+    description:
+      "تصميم وتنفيذ مطابخ خشبية وألمنيوم فاخرة مع شركة أزهار الربيع – خبرة 40 سنة وجودة 100%.",
+    url: "https://springflowersco.com",
+    siteName: "أزهار الربيع",
+    locale: "ar_JO",
+    type: "website",
+    images: [
+      {
+        url: "/New folder/IMG-20251002-WA0003.jpg",
+        width: 1200,
+        height: 630,
+        alt: "مطابخ خشبية من شركة أزهار الربيع في الأردن",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://springflowersco.com",
+    languages: {
+      "ar-JO": "/",
+      "en-US": "/en",
+    },
+  },
+};
+
 'use client';
 
 import React, { useState, useEffect } from "react";
@@ -120,6 +158,7 @@ const sampleItems = [
   { id: 9, category: "aluminum", title: "مطابخ ألمنيوم " , img: "/New folder/IMG-20251002-WA0010.jpg"},
   { id: 10, category: "aluminum", title: "مطابخ ألمنيوم " , img: "/New folder/IMG-20251002-WA0008.jpg"},
 ];
+
 
 
 export default function KitchensShowcase({ initialLang = "ar" }) {
