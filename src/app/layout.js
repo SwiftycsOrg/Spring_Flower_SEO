@@ -1,6 +1,5 @@
 import { Noto_Kufi_Arabic, Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
 
 const arabicFont = Noto_Kufi_Arabic({
   variable: "--font-arabic",
