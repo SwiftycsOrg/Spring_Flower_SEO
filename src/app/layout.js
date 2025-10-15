@@ -57,7 +57,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${arabicFont.variable} ${englishFont.variable} bg-[#FAF9F6] text-[#333] antialiased`}
       >
-        <Navbar />
         {children}
       </body>
     </html>
