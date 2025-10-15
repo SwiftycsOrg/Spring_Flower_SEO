@@ -26,9 +26,9 @@ export const metadata = {
     "أزهار الربيع الأردن",
   ],
   icons: {
-    icon: "/public/logo.jpg", 
-    shortcut: "/public/logo.jpg",
-    apple: "/public/logo.jpg",
+    icon: "/logo.jpg", 
+    shortcut: "/logo.jpg",
+    apple: "/logo.jpg",
   },
   openGraph: {
     title: "شركة أزهار الربيع | Spring Flowers",
