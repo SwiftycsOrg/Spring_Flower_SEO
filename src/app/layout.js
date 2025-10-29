@@ -1,62 +1,62 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Kufi_Arabic, Poppins } from "next/font/google";
 import "./globals.css";
-import Footer from "./components/Footer";
-import Navbar from "./components/NavBar";
-import Container from "./components/Container";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const arabicFont = Noto_Kufi_Arabic({
+  variable: "--font-arabic",
+  subsets: ["arabic"],
+  weight: ["400", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const englishFont = Poppins({
+  variable: "--font-english",
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
 });
-
 
 export const metadata = {
-  title: "Swiftycs",
+  title: "شركة أزهار الربيع | مطابخ خشبية وألمنيوم فاخرة في الأردن",
   description:
-    "Our self-serve data analytics platform uses AI and ML to transform your data into insights in just a few steps",
+    "شركة أزهار الربيع متخصصة في تصميم وتنفيذ المطابخ العصرية والديكورات الداخلية الفاخرة. أكثر من 40 سنة من الخبرة و1000 مشروع منجز بجودة عالية في الأردن.",
+  keywords: [
+    "مطابخ خشبية",
+    "مطابخ ألمنيوم",
+    "ديكور داخلي",
+    "تصميم مطابخ",
+    "أزهار الربيع الأردن",
+  ],
   icons: {
-    icon: "/cropped-Deltycs-03-105x105-1.png",
+    icon: "/logo.jpg", 
+    shortcut: "/logo.jpg",
+    apple: "/logo.jpg",
   },
   openGraph: {
-    title: "Swiftycs",
+    title: "شركة أزهار الربيع | Spring Flowers",
     description:
-      "Our self-serve data analytics platform uses AI and ML to transform your data into insights in just a few steps",
-    url: "https://swiftycs.com",
-    siteName: "Swiftycs",
+      "تصميم وتنفيذ مطابخ خشبية وألمنيوم وديكورات داخلية فاخرة في الأردن.",
+    url: "https://springflowersco.com",
+    siteName: "أزهار الربيع",
+    locale: "ar_JO",
+    type: "website",
     images: [
       {
-        url: "/cropped-Deltycs-03-105x105-1.png", 
+        url: "/New folder/IMG-20251002-WA0003.jpg",
         width: 1200,
         height: 630,
-        alt: "Swiftycs Preview",
+        alt: "مطابخ خشبية من شركة أزهار الربيع في الأردن",
       },
     ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: ["/cropped-Deltycs-03-105x105-1.png"],
   },
 };
 
 
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="ar" dir="rtl">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased` }
+        className={`${arabicFont.variable} ${englishFont.variable} bg-[#FAF9F6] text-[#333] antialiased`}
       >
-        <Navbar/>
-        <Container>
-          {children}
-        </Container>
-        <Footer />
+        {children}
       </body>
     </html>
   );
