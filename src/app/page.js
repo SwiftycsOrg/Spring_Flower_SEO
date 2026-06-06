@@ -544,7 +544,7 @@ export default function KitchensShowcase({ initialLang = "ar" }) {
       >
         <img
           src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-          alt="Facebook"s
+          alt="Facebook"
           className="w-6 h-6"
         />
         Facebook

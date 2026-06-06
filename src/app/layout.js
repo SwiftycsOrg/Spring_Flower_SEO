@@ -1,16 +1,22 @@
-import { Noto_Kufi_Arabic, Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const arabicFont = Noto_Kufi_Arabic({
+const arabicFont = localFont({
   variable: "--font-arabic",
-  subsets: ["arabic"],
-  weight: ["400", "600", "700"],
+  src: [
+    { path: "../../public/fonts/NotoKufiArabic-Regular.ttf", weight: "400" },
+    { path: "../../public/fonts/NotoKufiArabic-SemiBold.ttf", weight: "600" },
+    { path: "../../public/fonts/NotoKufiArabic-Bold.ttf", weight: "700" },
+  ],
 });
 
-const englishFont = Poppins({
+const englishFont = localFont({
   variable: "--font-english",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  src: [
+    { path: "../../public/fonts/Poppins-Regular.woff2", weight: "400" },
+    { path: "../../public/fonts/Poppins-SemiBold.woff2", weight: "600" },
+    { path: "../../public/fonts/Poppins-Bold.woff2", weight: "700" },
+  ],
 });
 
 export const metadata = {
