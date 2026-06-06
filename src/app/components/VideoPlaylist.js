@@ -11,7 +11,7 @@ export default function VideoSeminar({ lang = "en" }) {
       descAr: "لمحة عن تنسيقاتنا ال الأنيقة ولمساتنا الإبداعية."
     },
     {
-      src: "/VID-20251002-WA0002.mp4",
+      src: "/WhatsApp Video 2026-06-02 at 4.45.56 PM.mp4",
       titleEn: "Seminar Video 2",
       descEn: "Showcasing event decoration with a blend of beauty and precision.",
       titleAr: "التصميم 2",
