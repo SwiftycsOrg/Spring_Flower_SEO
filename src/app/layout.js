@@ -4,18 +4,18 @@ import "./globals.css";
 const arabicFont = localFont({
   variable: "--font-arabic",
   src: [
-    { path: "../../public/fonts/NotoKufiArabic-Regular.ttf", weight: "400" },
-    { path: "../../public/fonts/NotoKufiArabic-SemiBold.ttf", weight: "600" },
-    { path: "../../public/fonts/NotoKufiArabic-Bold.ttf", weight: "700" },
+    { path: "./fonts/NotoKufiArabic-Regular.ttf", weight: "400" },
+    { path: "./fonts/NotoKufiArabic-SemiBold.ttf", weight: "600" },
+    { path: "./fonts/NotoKufiArabic-Bold.ttf", weight: "700" },
   ],
 });
 
 const englishFont = localFont({
   variable: "--font-english",
   src: [
-    { path: "../../public/fonts/Poppins-Regular.woff2", weight: "400" },
-    { path: "../../public/fonts/Poppins-SemiBold.woff2", weight: "600" },
-    { path: "../../public/fonts/Poppins-Bold.woff2", weight: "700" },
+    { path: "./fonts/Poppins-Regular.woff2", weight: "400" },
+    { path: "./fonts/Poppins-SemiBold.woff2", weight: "600" },
+    { path: "./fonts/Poppins-Bold.woff2", weight: "700" },
   ],
 });
 
