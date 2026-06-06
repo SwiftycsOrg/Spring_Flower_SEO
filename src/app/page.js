@@ -119,9 +119,9 @@ const sampleItems = [
   { id: 8, category: "aluminum", title: "مطابخ ألمنيوم "  , img: "/New folder/IMG-20251002-WA0011.jpg"},
   { id: 9, category: "aluminum", title: "مطابخ ألمنيوم " , img: "/New folder/IMG-20251002-WA0010.jpg"},
   { id: 10, category: "aluminum", title: "مطابخ ألمنيوم " , img: "/New folder/IMG-20251002-WA0008.jpg"},
-  { id: 11, category: "wood", title: "مطابخ خشبية " , img: "/gallery-new-1.jpg"},
-  { id: 12, category: "wood", title: "مطابخ خشبية " , img: "/gallery-new-2.jpg"},
-  { id: 13, category: "wood", title: "مطابخ خشبية " , img: "/gallery-new-3.jpg"},
+  { id: 11, category: "wood", title: "مطابخ خشبية " , img: "/gallery-1.jpg"},
+  { id: 12, category: "wood", title: "مطابخ خشبية " , img: "/gallery-2.jpg"},
+  { id: 13, category: "wood", title: "مطابخ خشبية " , img: "/gallery-3.jpg"},
 ];
 
 
