@@ -20,6 +20,7 @@ const englishFont = localFont({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://springflowersco.com"),
   title: "شركة أزهار الربيع | مطابخ خشبية وألمنيوم فاخرة في الأردن",
   description:
     "شركة أزهار الربيع متخصصة في تصميم وتنفيذ المطابخ العصرية والديكورات الداخلية الفاخرة. أكثر من 40 سنة من الخبرة و1000 مشروع منجز بجودة عالية في الأردن.",
