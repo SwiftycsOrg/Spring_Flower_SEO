@@ -6,7 +6,7 @@ import VideoPlaylist from "./components/VideoPlaylist";
 const content = {
   ar: {
     welcome: {
-      hero: "أزهار الربيع",
+      hero: "_أزهار الربيع",
       tagline: "حيث تلتقي الجودة بالإبداع",
       subtitle: "نحول أحلامك إلى واقع ملموس",
       cta: "استكشف أعمالنا",
